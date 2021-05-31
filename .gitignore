@@ -1,88 +1,86 @@
+# Backend -----
 # Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
+phageplotter-server/__pycache__/
+phageplotter-server/*.py[cod]
+phageplotter-server/*$py.class
 
 # Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+phageplotter-server/.Python
+phageplotter-server/build/
+phageplotter-server/develop-eggs/
+phageplotter-server/dist/
+phageplotter-server/downloads/
+phageplotter-server/eggs/
+phageplotter-server/.eggs/
+phageplotter-server/lib/
+phageplotter-server/lib64/
+phageplotter-server/parts/
+phageplotter-server/sdist/
+phageplotter-server/var/
+phageplotter-server/wheels/
+phageplotter-server/pip-wheel-metadata/
+phageplotter-server/share/python-wheels/
+phageplotter-server/*.egg-info/
+phageplotter-server/.installed.cfg
+phageplotter-server/*.egg
+phageplotter-server/MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+phageplotter-server/*.manifest
+phageplotter-server/*.spec
 
 # Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+phageplotter-server/pip-log.txt
+phageplotter-server/pip-delete-this-directory.txt
 
 # Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
+phageplotter-server/htmlcov/
+phageplotter-server/.tox/
+phageplotter-server/.nox/
+phageplotter-server/.coverage
+phageplotter-server/.coverage.*
+phageplotter-server/.cache
+phageplotter-server/nosetests.xml
+phageplotter-server/coverage.xml
+phageplotter-server/*.cover
+phageplotter-server/*.py,cover
+phageplotter-server/.hypothesis/
+phageplotter-server/.pytest_cache/
 
 # Translations
-*.mo
-*.pot
+phageplotter-server/*.mo
+phageplotter-server/*.pot
 
 # Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+phageplotter-server/*.log
+phageplotter-server/local_settings.py
+phageplotter-server/db.sqlite3
+phageplotter-server/db.sqlite3-journal
 
 # Flask stuff:
-instance/
-.webassets-cache
+phageplotter-server/instance/
+phageplotter-server/.webassets-cache
 
 # Scrapy stuff:
-.scrapy
+phageplotter-server/.scrapy
 
 # Sphinx documentation
-docs/_build/
+phageplotter-server/docs/_build/
 
 # PyBuilder
-target/
+phageplotter-server/target/
 
 # Jupyter Notebook
-.ipynb_checkpoints
+phageplotter-server/.ipynb_checkpoints
 
 # IPython
-profile_default/
-ipython_config.py
+phageplotter-server/profile_default/
+phageplotter-server/ipython_config.py
 
 # pyenv
-.python-version
+phageplotter-server/.python-version
 
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
@@ -92,38 +90,40 @@ ipython_config.py
 #Pipfile.lock
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
+phageplotter-server/__pypackages__/
 
 # Celery stuff
-celerybeat-schedule
-celerybeat.pid
+phageplotter-server/celerybeat-schedule
+phageplotter-server/celerybeat.pid
 
 # SageMath parsed files
-*.sage.py
+phageplotter-server/*.sage.py
 
 # Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+phageplotter-server/.env
+phageplotter-server/.venv
+phageplotter-server/env/
+phageplotter-server/venv/
+phageplotter-server/ENV/
+phageplotter-server/env.bak/
+phageplotter-server/venv.bak/
 
 # Spyder project settings
-.spyderproject
-.spyproject
+phageplotter-server/.spyderproject
+phageplotter-server/.spyproject
 
 # Rope project settings
-.ropeproject
+phageplotter-server/.ropeproject
 
 # mkdocs documentation
-/site
+phageplotter-server/site
 
 # mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+phageplotter-server/.mypy_cache/
+phageplotter-server/.dmypy.json
+phageplotter-server/dmypy.json
 
 # Pyre type checker
-.pyre/
+phageplotter-server/.pyre/
+
+# Front-End ----- 
