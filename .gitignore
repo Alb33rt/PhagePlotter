@@ -127,3 +127,6 @@ phageplotter-server/dmypy.json
 phageplotter-server/.pyre/
 
 # Front-End ----- 
+### react ###
+node_modules
+bower_components
