@@ -29,7 +29,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      iter1: null,
+      iter: null,
       bacPop: null,
       phagePop: null
     };
@@ -37,24 +37,48 @@ class App extends Component {
 
   async componentDidMount() {
     try {
-      fetch("http://127.0.0.1:8000/data/initialize", {
-      credentials: 'include',
-      method: 'GET',
-      mode: 'same-origin',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'X-CSRFToken': csrftoken
-      },
-    }).then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-
+      fetch("localhost:8000/simdata1", {
+        credentials: 'include',
+        method: 'GET',
+        mode: 'same-origin',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken
+        },
+      }).then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              bacPop: result.bacteria_population,
+              phagePop: result.phage_population,
+            });
           });
-        });
     }
-    catch(e){
+    catch (e) {
+      console.log(e);
+    }
+  }
+  sendRequest() {
+    try {
+      fetch("localhost:8000/simdata1", {
+        credentials: 'include',
+        method: 'GET',
+        mode: 'same-origin',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken
+        },
+      }).then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+
+            });
+          });
+    }
+    catch (e) {
       console.log(e);
     }
   }
@@ -66,7 +90,7 @@ class App extends Component {
           <NavbarBrand href="/" className="text-white">Mingdao iGEM Bacterial Phage Simulation Visualizer</NavbarBrand>
           <NavbarText className="floatRight text-white">Mingdao iGEM 2021</NavbarText>
         </Navbar>
-        <br></br><Button color="secondary" className="marginLeft">Start Simulation</Button><br></br><br></br>
+        <br></br><Button color="secondary" className="marginLeft" onClick={this.sendRequest}>Start Simulation</Button><br></br><br></br>
         <Plot
           data={[
             {
@@ -79,7 +103,10 @@ class App extends Component {
           ]}
           layout={{ autosize: true, title: 'Bacteria Population Size' }}
         />
-        <p>/*should be added later */</p>
+        <p>Bacteria Population</p>
+        <p>{this.state.bacPop}</p>
+        <p>Phage Population</p>
+        <p>{this.state.phagePop}</p>
       </div>
     );
   }
