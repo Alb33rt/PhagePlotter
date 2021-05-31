@@ -12,8 +12,9 @@ import Plot from 'react-plotly.js';
 function App() {
   return (
     <div>
-      <Navbar color="dark" light expand="md">
+      <Navbar color="dark" light expand="md" className="spaceLeft">
         <NavbarBrand href="/" className="text-white">Mingdao iGEM Bacterial Phage Simulation Visualizer</NavbarBrand>
+        <NavbarText className="floatRight text-white">Mingdao iGEM 2021</NavbarText>
       </Navbar>
       <Plot
         data={[

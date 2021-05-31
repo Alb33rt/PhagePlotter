@@ -1,0 +1,8 @@
+.spaceLeft{
+    padding-left: 2%;
+}
+.floatRight{
+    right: 0;
+    position: absolute;
+    margin-right: 2%;
+}
