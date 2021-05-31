@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import {
   Navbar,
   NavbarBrand,
-  NavbarText
+  NavbarText,
+  Button
 } from 'reactstrap';
 
 import Plot from 'react-plotly.js';
@@ -16,6 +17,7 @@ function App() {
         <NavbarBrand href="/" className="text-white">Mingdao iGEM Bacterial Phage Simulation Visualizer</NavbarBrand>
         <NavbarText className="floatRight text-white">Mingdao iGEM 2021</NavbarText>
       </Navbar>
+      <br></br><Button color="secondary" className="marginLeft">Start Simulation</Button><br></br><br></br>
       <Plot
         data={[
           {
