@@ -1,9 +1,19 @@
+import uuid
 from django.db import models
 
 # Create your models here.
-class Environment(models.Model):
-    pass
-                  
+class Simulation(models.Model):
+    uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable= False)
+    parameterfile = models.FileField(upload_to="input/")
+    microbialfile = models.FileField(upload_to="input/")
+
+class SimulationStats(models.Model):
+    id = models.IntegerField(primary_key= True, auto_created= True,)
+    simulation = models.ForeignKey('Simulation', on_delete=models.CASCADE,)
+    bacteria_population = models.BigIntegerField()
+    phage_population = models.BigIntegerField()
+
+# The following are parameters for the file.     
     # #SIMULATIONS#
     # "Random Seed": None,
     # "Number Simulations": None,
@@ -64,7 +74,3 @@ class Environment(models.Model):
     
     # "Failed Phage Infection DNA Prophage Integration":None,
     # "Failed Phage Infection DNA Chromosome Integration":None,
-
-
-class Iteration(models.Model):
-    pass

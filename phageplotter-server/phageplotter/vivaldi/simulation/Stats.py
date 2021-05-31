@@ -222,6 +222,7 @@ def GetStats(bacteria_list, world):
 
                                 
     log_stats["Bacteria Population Size"]=sum(log_stats["Bacteria Subpopulation Size"].values())
+    
     log_stats["Bacteria ARG Population Size"]=sum(log_stats["Bacteria ARG Subpopulation Size"].values())
     log_stats["Bacteria OnLysis Population Size"]=sum(log_stats["Bacteria OnLysis Subpopulation Size"].values())
     log_stats["Bacteria Temperate Population Size"]=sum(log_stats["Bacteria Temperate Subpopulation Size"].values())

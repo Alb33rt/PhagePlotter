@@ -233,6 +233,8 @@ for sim in range(sims):
                                     new_bacteria.resistances[gene[0].split(":")[1]]=True
 
             bacs.append(new_bacteria)
+
+    
     
     
     print("Setup done. Here are the parameters to be simulated")    
