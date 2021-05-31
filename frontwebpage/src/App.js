@@ -11,6 +11,24 @@ import {
 import Plot from 'react-plotly.js';
 
 class App extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: null,
+    };
+  }
+  
+  async componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/todos/1")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            id: result.userId
+          });
+        });
+  }
+
   render() {
     return (
       <div>
@@ -31,6 +49,7 @@ class App extends Component{
           ]}
           layout={{ autosize: true, title: 'Bacteria Population Size' }}
         />
+        <p>{this.state.id}</p>
       </div>
     );
   }
