@@ -12,11 +12,15 @@ class DataViewSet(viewsets.ModelViewSet):
     serializer_class = SimulationStatSerializer
 
 @api_view(['GET', 'POST'])
-def dataviewset(request):
+def dataviewset1(request):
+    print("Recieved Request")
     if request.method == "GET":
         queryset = SimulationStats.objects.all()
         serializer = SimulationStatSerializer(queryset, many=True)
-        return Response(serializer.data)
+        response = serializer.data
+        print(Response(serializer.data))
+        return Response(response)
+
     if request.method == "POST":
         serializer = SimulationStatSerializer(data=request.data)
         if serializer.is_valid():

@@ -9,7 +9,7 @@ class Simulation(models.Model):
 
 class SimulationStats(models.Model):
     id = models.IntegerField(primary_key= True, auto_created= True,)
-    simulation = models.ForeignKey('Simulation', on_delete=models.CASCADE,)
+    # simulation = models.ForeignKey('Simulation', on_delete=models.CASCADE,)
     bacteria_population = models.BigIntegerField()
     phage_population = models.BigIntegerField()
 

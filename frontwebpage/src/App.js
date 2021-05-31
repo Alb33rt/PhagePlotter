@@ -37,10 +37,34 @@ class App extends Component {
 
   async componentDidMount() {
     try {
-      fetch("localhost:8000/simdata1", {
+      fetch("http://localhost:8000/data/simdata1", {
         credentials: 'include',
         method: 'GET',
-        mode: 'same-origin',
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken
+        },
+      }).then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              bacPop: result[0].bacteria_population,
+              phagePop: result[0].phage_population,
+            });
+          });
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
+  sendRequest() {
+    try {
+      fetch("http://localhost:8000/data/simdata1", {
+        credentials: 'include',
+        method: 'GET',
+        mode: 'cors',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
@@ -59,29 +83,6 @@ class App extends Component {
       console.log(e);
     }
   }
-  sendRequest() {
-    try {
-      fetch("localhost:8000/simdata1", {
-        credentials: 'include',
-        method: 'GET',
-        mode: 'same-origin',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'X-CSRFToken': csrftoken
-        },
-      }).then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-
-            });
-          });
-    }
-    catch (e) {
-      console.log(e);
-    }
-  }
 
   render() {
     return (
@@ -90,7 +91,7 @@ class App extends Component {
           <NavbarBrand href="/" className="text-white">Mingdao iGEM Bacterial Phage Simulation Visualizer</NavbarBrand>
           <NavbarText className="floatRight text-white">Mingdao iGEM 2021</NavbarText>
         </Navbar>
-        <br></br><Button color="secondary" className="marginLeft" onClick={this.sendRequest}>Start Simulation</Button><br></br><br></br>
+        <br></br><Button color="secondary" className="marginLeft" onClick={this.sendRequest.bind(this)}>Start Simulation</Button><br></br><br></br>
         <Plot
           data={[
             {

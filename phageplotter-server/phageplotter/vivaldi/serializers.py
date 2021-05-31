@@ -4,4 +4,4 @@ from .models import SimulationStats
 class SimulationStatSerializer(serializers.ModelSerializer):
     class Meta:
         model = SimulationStats
-        fields = ['bacteria_population', 'phage_population']
+        fields = ['id', 'bacteria_population', 'phage_population']
