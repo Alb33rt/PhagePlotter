@@ -1,32 +1,62 @@
 import './App.css';
-
 import React, { Component } from 'react';
+import $ from 'jquery';
 import {
   Navbar,
   NavbarBrand,
   NavbarText,
   Button
 } from 'reactstrap';
-
 import Plot from 'react-plotly.js';
 
-class App extends Component{
+function getCookie(name) {
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = $.trim(cookies[i]);
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: null,
+      iter1: null,
+      bacPop: null,
+      phagePop: null
     };
   }
-  
+
   async componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/todos/1")
-      .then(res => res.json())
+    try {
+      fetch("http://127.0.0.1:8000/data/initialize", {
+      credentials: 'include',
+      method: 'GET',
+      mode: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken
+      },
+    }).then(res => res.json())
       .then(
         (result) => {
           this.setState({
-            id: result.userId
+
           });
         });
+    }
+    catch(e){
+      console.log(e);
+    }
   }
 
   render() {
@@ -49,7 +79,7 @@ class App extends Component{
           ]}
           layout={{ autosize: true, title: 'Bacteria Population Size' }}
         />
-        <p>{this.state.id}</p>
+        <p>/*should be added later */</p>
       </div>
     );
   }
