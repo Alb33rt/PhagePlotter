@@ -128,5 +128,26 @@ phageplotter-server/.pyre/
 
 # Front-End ----- 
 ### react ###
-node_modules
-bower_components
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+frontwebpage/node_modules
+frontwebpage/.pnp
+frontwebpage/.pnp.js
+
+# testing
+frontwebpage/coverage
+
+# production
+frontwebpage/build
+
+# misc
+frontwebpage/.DS_Store
+frontwebpage/.env.local
+frontwebpage/.env.development.local
+frontwebpage/.env.test.local
+frontwebpage/.env.production.local
+
+frontwebpage/npm-debug.log*
+frontwebpage/yarn-debug.log*
+frontwebpage/yarn-error.log*
