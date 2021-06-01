@@ -29,9 +29,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      iter: Array[70],
-      bacPop:  Array[70],
-      phagePop:  Array[70]
+      iter: Array(70),
+      bacPop:  Array(70),
+      phagePop:  Array(70)
     };
   }
 
@@ -49,9 +49,9 @@ class App extends Component {
       }).then(res => res.json())
         .then(
           (result) => {
-            var barPropArr=Array[70];
-            var phagePropArr=Array[70];
-            var iterationArr=Array[70];
+            var barPropArr=Array(90);
+            var phagePropArr=Array(70);
+            var iterationArr=Array(70);
             for(let i=0;i<result.length;i++){
               barPropArr.push(result[i].bacteria_population);
               phagePropArr.push(result[i].phage_population);
@@ -82,9 +82,9 @@ class App extends Component {
       }).then(res => res.json())
       .then(
         (result) => {
-          var barPropArr=Array[70];
-          var phagePropArr=Array[70];
-          var iterationArr=Array[70];
+          var barPropArr=Array(90);
+          var phagePropArr=Array(70);
+          var iterationArr=Array(70);
           for(let i=0;i<result.length;i++){
             barPropArr.push(result[i].bacteria_population);
             phagePropArr.push(result[i].phage_population);
