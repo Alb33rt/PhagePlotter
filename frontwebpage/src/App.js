@@ -49,7 +49,7 @@ class App extends Component {
       }).then(res => res.json())
         .then(
           (result) => {
-            var barPropArr=Array(90);
+            var barPropArr=Array(70);
             var phagePropArr=Array(70);
             var iterationArr=Array(70);
             for(let i=0;i<result.length;i++){
@@ -82,7 +82,7 @@ class App extends Component {
       }).then(res => res.json())
       .then(
         (result) => {
-          var barPropArr=Array(90);
+          var barPropArr=Array(70);
           var phagePropArr=Array(70);
           var iterationArr=Array(70);
           for(let i=0;i<result.length;i++){
