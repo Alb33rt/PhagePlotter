@@ -50,8 +50,8 @@ class App extends Component {
         .then(
           (result) => {
             this.setState({
-              bacPop: result[0].bacteria_population,
-              phagePop: result[0].phage_population,
+              bacPop: result[1].bacteria_population,
+              phagePop: result[1].phage_population,
             });
           });
     }
@@ -74,8 +74,8 @@ class App extends Component {
         .then(
           (result) => {
             this.setState({
-              bacPop: result.bacteria_population,
-              phagePop: result.phage_population,
+              bacPop: result[1].bacteria_population,
+              phagePop: result[1].phage_population,
             });
           });
     }
