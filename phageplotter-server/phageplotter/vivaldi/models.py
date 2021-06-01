@@ -4,11 +4,23 @@ from django.db import models
 # Create your models here.
 class Simulation(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable= False)
-    parameterfile = models.FileField(upload_to="input/")
-    microbialfile = models.FileField(upload_to="input/")
+    name = models.TextField(default='default', null=False)
+    time_created = models.DateTimeField(auto_now_add=True)
+
+    parameterfile = models.FileField(upload_to="input")
+    microbialfile = models.FileField(upload_to="input")
+
+    # Determinants for simulation completion
+    initialized = models.BooleanField(default=False)
+    completed = models.BooleanField(default=False)
+
+    # Parameters, THIS IS OPTIONAL BECAUSE OF THE PARAMETER AND MICROBIAL FILES FORMAT
+    num_of_sims = models.IntegerField(default=100)
 
 class SimulationStats(models.Model):
     id = models.IntegerField(primary_key= True, auto_created= True,)
+    sim = models.ForeignKey(Simulation, related_name="stats", on_delete=models.CASCADE, null=True)
+
     # simulation = models.ForeignKey('Simulation', on_delete=models.CASCADE,)
     bacteria_population = models.BigIntegerField()
     phage_population = models.BigIntegerField()

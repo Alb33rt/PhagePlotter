@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from .api import views
-from vivaldi.views import DataViewSet
+from vivaldi.views import DataViewSet, SimulationViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'simdata', DataViewSet)
+router.register(r'simulations', SimulationViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
