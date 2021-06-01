@@ -29,9 +29,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      iter: null,
-      bacPop: null,
-      phagePop: null
+      iter: Array[70],
+      bacPop:  Array[70],
+      phagePop:  Array[70]
     };
   }
 
@@ -49,9 +49,18 @@ class App extends Component {
       }).then(res => res.json())
         .then(
           (result) => {
+            var barPropArr=Array[70];
+            var phagePropArr=Array[70];
+            var iterationArr=Array[70];
+            for(let i=0;i<result.length;i++){
+              barPropArr.push(result[i].bacteria_population);
+              phagePropArr.push(result[i].phage_population);
+              iterationArr.push(i);
+            }
             this.setState({
-              bacPop: result[1].bacteria_population,
-              phagePop: result[1].phage_population,
+              bacPop: barPropArr,
+              phagePop: phagePropArr,
+              iter: iterationArr
             });
           });
     }
@@ -71,13 +80,22 @@ class App extends Component {
           'X-CSRFToken': csrftoken
         },
       }).then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-              bacPop: result[1].bacteria_population,
-              phagePop: result[1].phage_population,
-            });
+      .then(
+        (result) => {
+          var barPropArr=Array[70];
+          var phagePropArr=Array[70];
+          var iterationArr=Array[70];
+          for(let i=0;i<result.length;i++){
+            barPropArr.push(result[i].bacteria_population);
+            phagePropArr.push(result[i].phage_population);
+            iterationArr.push(i);
+          }
+          this.setState({
+            bacPop: barPropArr,
+            phagePop: phagePropArr,
+            iter: iterationArr
           });
+        });
     }
     catch (e) {
       console.log(e);
@@ -95,14 +113,26 @@ class App extends Component {
         <Plot
           data={[
             {
-              x: [1, 2, 3],
-              y: [2, 6, 3],
+              x: this.state.iter,
+              y: this.state.bacPop,
               type: 'scatter',
               mode: 'lines+markers',
               marker: { color: 'red' },
             },
           ]}
           layout={{ autosize: true, title: 'Bacteria Population Size' }}
+        />
+        <Plot
+          data={[
+            {
+              x: this.state.iter,
+              y: this.state.phagePop,
+              type: 'scatter',
+              mode: 'lines+markers',
+              marker: { color: 'red' },
+            },
+          ]}
+          layout={{ autosize: true, title: 'Phage Population Size' }}
         />
         <p>Bacteria Population</p>
         <p>{this.state.bacPop}</p>
