@@ -30,7 +30,8 @@ ALLOWED_HOSTS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://192.168.50.59:3002",
+    "http://192.168.50.59:3000",
+    # OR any other address your React is installed on 
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False

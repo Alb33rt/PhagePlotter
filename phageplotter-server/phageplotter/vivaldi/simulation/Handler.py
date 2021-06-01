@@ -30,7 +30,7 @@ print("Setup file", args.setupfile)
   
 
 import Parameters
-from Parameters import model_parameters as param
+from .Parameters import model_parameters as param
 Parameters.LoadParameters(args.paramfile)
 
 
@@ -93,6 +93,7 @@ def AddPhages(future_phage, world):
 
 sims=param["Number Simulations"]
 
+# Here is the actual start of the program 
 for sim in range(sims):
 
     #First set up the world
